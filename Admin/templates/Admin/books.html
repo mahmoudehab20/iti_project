@@ -1,0 +1,22 @@
+{% extends 'Admin/layout/Adbase.html'%}
+
+{% load static %}
+
+{% block title%}books{% endblock %}
+
+{% block body %}
+<div>      
+  <a href="{% url 'book.add'%}" class="btn btn-primary">add new book</a>
+</div>
+<div style="display:inline-block;">
+{% for b in book%}
+<div class="card" style="width: 18rem;">
+    <img src="{{b.get_image_url}}" class="card-img-top" height="300">
+    <div class="card-body">
+      <h5 class="card-title">{{b.name}}</h5>
+      <a href="{{b.get_show_url}}" class="btn btn-primary">details</a>
+    </div>
+  </div>
+{% endfor %}
+</div>
+{% endblock %}

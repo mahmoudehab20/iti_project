@@ -1,0 +1,15 @@
+{% extends 'Admin/layout/Adbase.html'%}
+
+{% load static %}
+
+{% block title%}users{% endblock %}
+
+{% block body %}
+<div style="display: inline;">
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{name.username}}</h5>
+    </div>
+  </div>
+</div>
+{% endblock %}
