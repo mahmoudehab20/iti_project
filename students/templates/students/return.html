@@ -1,0 +1,19 @@
+{% extends 'Admin/layout/Adbase.html'%}
+
+{% load static %}
+
+{% block title%}{{books.name}}{% endblock %}
+
+{% block body %}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+<h2 style="color: green;"> are you sure you want to return this book?</h2>
+
+    <button type="submit" class="btn btn-danger">return</button>
+</form>
+<a href="{{books.get_show_url}}" class="btn btn-dark"> Cancel</a>
+</div>
+<script src="{% static 'Admin/js/script.js'%}"> </script>
+
+{% endblock %}
