@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.urls import path
 from Admin.views import (booksListGenericView,booksDetailGenericView,DeletebookGenericView,addbookGenericView
-                         ,UpdatebookGenericView,registration,usersListGenericView,bowbooks,showborrow,search,returnbookGenericView)
+                         ,UpdatebookGenericView,registration,usersListGenericView,search)
 
 urlpatterns = [
     path('',booksListGenericView.as_view(),name='books'),
@@ -11,8 +11,5 @@ urlpatterns = [
     path('<int:pk>/edit',login_required(UpdatebookGenericView.as_view()),name='book.edit'),
     path('signup/',registration.as_view(),name='signup'),
     path('users/',login_required(usersListGenericView.as_view()),name='user'),
-    path('<int:id>/bo',bowbooks,name="borrow.book"),
-    path('borrow/',showborrow,name='borrowed'),
     path('search/',search,name='search'),
-    path('<int:id>',returnbookGenericView.as_view(),name='book.return')
 ]
