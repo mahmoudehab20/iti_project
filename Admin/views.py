@@ -56,18 +56,3 @@ def search(request):
         query=request.POST['search']
         name=User.objects.get(username=query)
         return render(request,'Admin/specuser.html',context={'name':name})
-def bowbooks(request,id):
-    bo=books.get_spec_book(id)
-    bo.borrow=request.user.id
-    bo.save()
-    return redirect('books')
-
-
-def showborrow(request):
-    borrow=books.objects.filter(borrow=request.user.id)
-    return render(request,'Admin/bowbooks.html',context={'borrow':borrow})
-
-class returnbookGenericView(DeleteView):
-    model = books
-    template_name = 'Admin/delete.html'
-    success_url = '/home'
